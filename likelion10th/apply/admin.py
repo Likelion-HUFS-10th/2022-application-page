@@ -17,4 +17,6 @@ class Applyadmin(admin.ModelAdmin):
         "second_q",
         "third_q",
         "fourth_q",
+        "created_at",
+        "updated_at",
     )
