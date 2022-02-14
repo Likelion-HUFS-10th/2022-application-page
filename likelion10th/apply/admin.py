@@ -8,7 +8,7 @@ class Applyadmin(admin.ModelAdmin):
     
     list_display = (
         "user",
-        "is_completed",
+        "is_submitted",
     )
     #admin에서 수정할 수 없는 그러니까 오직 읽을 수만 있는 필드를 지정합니다. 
     readonly_fields = (
