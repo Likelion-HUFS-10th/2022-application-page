@@ -56,7 +56,7 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     #유저의 명칭(?)을 뭐라고 할것인지.. 저희는 이름을 username으로 했기에 이렇게 설정했습니다.
     #참고한 코드의 경우에는 이가 email로 되어 있는 경우도 봤습니다!
-    USERNAME_FIELD = "name"
+    USERNAME_FIELD = "username"
     #필수로 입력받고 싶은 입력값이라고 합니다.. 
     REQUIRED_FIELDS = ["email"]
     
