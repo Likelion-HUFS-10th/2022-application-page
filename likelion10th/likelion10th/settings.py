@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
-
+import os
 from pathlib import Path
 from decouple import config
 
@@ -17,6 +17,15 @@ from decouple import config
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
+STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'apply', 'static') # BASE_DIR/apply/static
+]
+
+# static django에서는 편의를 위해 흩어져있는 static파일을 한곳에 모으는데, 
+# 그때 파일을 모아줄 위치를 나타냅니다.
+STATIC_ROOT = os.path.join(BASE_DIR, 'static') # BASE_DIR/static
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
@@ -57,7 +66,9 @@ ROOT_URLCONF = 'likelion10th.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            'likelion10th/templates'
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
