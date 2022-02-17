@@ -1,0 +1,142 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Tivo is a HTML landing page template built with Bootstrap to help you crate engaging presentations for SaaS apps and convert visitors into users.">
+    <meta name="author" content="Inovatik">
+
+    <!-- OG Meta Tags to improve the way the post looks when you share the page on LinkedIn, Facebook, Google+ -->
+	<meta property="og:site_name" content="" /> <!-- website name -->
+	<meta property="og:site" content="" /> <!-- website link -->
+	<meta property="og:title" content=""/> <!-- title shown in the actual shared post -->
+	<meta property="og:description" content="" /> <!-- description shown in the actual shared post -->
+	<meta property="og:image" content="" /> <!-- image link, make sure it's jpg -->
+	<meta property="og:url" content="" /> <!-- where do you want your post to link to -->
+	<meta property="og:type" content="article" />
+
+    <!-- Website Title -->
+    <title>Sign Up - Tivo - SaaS App HTML Landing Page Template</title>
+    
+    <!-- Styles -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap&subset=latin-ext" rel="stylesheet">
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'css/fontawesome-all.css' %}" rel="stylesheet">
+    <link href="{% static 'css/swiper.css' %}" rel="stylesheet">
+	<link href="{% static 'css/magnific-popup.css' %}" rel="stylesheet">
+	<link href="{% static 'css/styles.css' %}" rel="stylesheet">
+</head>
+<body data-spy="scroll" data-target=".fixed-top">
+    
+    <!-- Preloader -->
+	<div class="spinner-wrapper">
+        <div class="spinner">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+        </div>
+    </div>
+    <!-- end of preloader -->
+    
+
+    <!-- Header -->
+    <header id="header" class="ex-2-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>Sign Up</h1>
+                   <p>Fill out the form below to sign up for Tivo. Already signed up? Then just <a class="white" href="{% url 'account:login' %}" >Log In</a></p> 
+                    <!-- Sign Up Form -->
+                    <div class="form-container">
+                        <form action="{% url 'account:signup' %}" method="POST" id="signUpForm" >
+                          {% csrf_token %}
+                            <div class="form-group">
+                                <input type="email" class="form-control-input" id="semail" name='email' required >
+                                <label class="label-control" for="semail">Email</label>
+                                <div class="help-block with-errors"></div>
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control-input" id="spassword" name='password' required>
+                                <label class="label-control" for="spassword">Password</label>
+                                <div class="help-block with-errors"></div>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control-input" id="spassword" name='name' required>
+                                <label class="label-control" for="spassword">name</label>
+                                <div class="help-block with-errors"></div>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control-input" id="spassword" name='student_num' required>
+                                <label class="label-control" for="spassword">student_num</label>
+                                <div class="help-block with-errors"></div>
+                            </div>
+                            <div class="form-group">
+                                <select class="form-control-input" id="spassword" name='grade' required>
+                                    <option value="none">grade</option>
+                                    <option value="1">freshmen</option>
+                                    <option value="2">sophomore</option>
+                                    <option value="3">junior</option>
+                                    <option value="4">senior</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control-input" id="spassword" name='phone_num' required>
+                                <label class="label-control" for="spassword">phone_num</label>
+                                <div class="help-block with-errors"></div>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control-input" id="spassword" name='first_major' required>
+                                <label class="label-control" for="spassword">first_major</label>
+                                <div class="help-block with-errors"></div>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control-input" id="spassword" name='second_major' required>
+                                <label class="label-control" for="spassword">second_major</label>
+                                <div class="help-block with-errors"></div>
+                            </div>
+
+
+                            <div class="form-group checkbox">
+                                <input type="checkbox" id="sterms" value="Agreed-to-Terms" required>I agree with Tivo's <a href="privacy-policy.html">Privacy Policy</a> and <a href="terms-conditions.html">Terms Conditions</a>
+                                <div class="help-block with-errors"></div>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="form-control-submit-button">SIGN UP</button>
+                            </div>
+
+                            <div class="form-message">
+                                <div id="smsgSubmit" class="h3 text-center hidden"></div>
+                            </div>
+                        </form>
+                        <div class="form-group">
+                          <a href="{% url 'account:kakao-login' %}"><button type="button" class="form-control-submit-button">Kakao Login</button></a>
+                        </div>
+                    </div> <!-- end of form container -->
+                    <!-- end of sign up form -->
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </header> <!-- end of ex-header -->
+    <!-- end of header -->
+
+
+    <!-- Scripts -->
+    <script src="{% static 'js/jquery.min.js' %}"></script> <!-- jQuery for Bootstrap's JavaScript plugins -->
+    <script src="{% static 'js/popper.min.js' %}"></script> <!-- Popper tooltip library for Bootstrap -->
+    <script src="{% static 'js/bootstrap.min.js' %}"></script> <!-- Bootstrap framework -->
+    <script src="{% static 'js/jquery.easing.min.js' %}"></script> <!-- jQuery Easing for smooth scrolling between anchors -->
+    <script src="{% static 'js/swiper.min.js' %}"></script> <!-- Swiper for image and text sliders -->
+    <script src="{% static 'js/jquery.magnific-popup.js' %}"></script> <!-- Magnific Popup for lightboxes -->
+    {% comment %} <script src="{% static 'js/validator.min.js' %}"></script> php로 가는 원인..<!-- Validator.js - Bootstrap plugin that validates forms --> {% endcomment %}
+    <script src="{% static 'js/scripts.js' %}"></script> <!-- Custom scripts -->
+</body>
+</html>
+{% endblock %}
+
+
