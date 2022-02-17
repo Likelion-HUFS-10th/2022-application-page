@@ -1,0 +1,16 @@
+<form action="{% url 'apply:create' %}" method="post">
+    {%csrf_token%}
+    <p>질문1.: <input type="text" name="q1"></p>
+    <p>트랙 선택: 
+        <select style="width:300px" name="category">
+            <option value="P/D">기획/디자인</option>
+            <option value="FE">프론트엔드</option>
+            <option value="BE">백엔드</option>
+        </select>
+    </p>
+    <p>질문2.: <input type="text" name="q2"></p>
+    <p>질문3.: <input type="text" name="q3"></p>
+    <p>질문4.: <input type="text" name="q4"></p>
+    <p>깃허브 주소 혹은 블로그 링크: <input type="text" name="study_url"></p>
+    <button type="submit" name="draft">임시저장</button>
+</form>
