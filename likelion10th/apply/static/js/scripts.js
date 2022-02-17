@@ -157,17 +157,17 @@
 
 
     /* Sign Up Form */
-    // $("#signUpForm").validator().on("submit", function(event) {
-    // 	if (event.isDefaultPrevented()) {
-    //         // handle the invalid form...
-    //         sformError();
-    //         ssubmitMSG(false, "Please fill all fields!");
-    //     } else {
-    //         // everything looks good!
-    //         event.preventDefault();
-    //         ssubmitForm();
-    //     }
-    // });
+    $("#signUpForm").validator().on("submit", function(event) {
+    	if (event.isDefaultPrevented()) {
+            // handle the invalid form...
+            sformError();
+            ssubmitMSG(false, "Please fill all fields!");
+        } else {
+            // everything looks good!
+            event.preventDefault();
+            ssubmitForm();
+        }
+    });
 
     function ssubmitForm() {
         // initiate variables with form content
@@ -191,17 +191,17 @@
         });
 	}
 
-    // function sformSuccess() {
-    //     $("#signUpForm")[0].reset();
-    //     ssubmitMSG(true, "Sign Up Submitted!");
-    //     $("input").removeClass('notEmpty'); // resets the field label after submission
-    // }
+    function sformSuccess() {
+        $("#signUpForm")[0].reset();
+        ssubmitMSG(true, "Sign Up Submitted!");
+        $("input").removeClass('notEmpty'); // resets the field label after submission
+    }
 
-    // function sformError() {
-    //     $("#signUpForm").removeClass().addClass('shake animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
-    //         $(this).removeClass();
-    //     });
-	// }
+    function sformError() {
+        $("#signUpForm").removeClass().addClass('shake animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+            $(this).removeClass();
+        });
+	}
 
     function ssubmitMSG(valid, msg) {
         if (valid) {
@@ -214,17 +214,17 @@
 
 
     /* Log In Form */
-    // $("#logInForm").validator().on("submit", function(event) {
-    // 	if (event.isDefaultPrevented()) {
-    //         // handle the invalid form...
-    //         lformError();
-    //         lsubmitMSG(false, "Please fill all fields!");
-    //     } else {
-    //         // everything looks good!
-    //         event.preventDefault();
-    //         lsubmitForm();
-    //     }
-    // });
+    $("#logInForm").validator().on("submit", function(event) {
+    	if (event.isDefaultPrevented()) {
+            // handle the invalid form...
+            lformError();
+            lsubmitMSG(false, "Please fill all fields!");
+        } else {
+            // everything looks good!
+            event.preventDefault();
+            lsubmitForm();
+        }
+    });
 
     function lsubmitForm() {
         // initiate variables with form content
@@ -246,17 +246,17 @@
         });
 	}
 
-    // function lformSuccess() {
-    //     $("#logInForm")[0].reset();
-    //     lsubmitMSG(true, "Log In Submitted!");
-    //     $("input").removeClass('notEmpty'); // resets the field label after submission
-    // }
+    function lformSuccess() {
+        $("#logInForm")[0].reset();
+        lsubmitMSG(true, "Log In Submitted!");
+        $("input").removeClass('notEmpty'); // resets the field label after submission
+    }
 
-    // function lformError() {
-    //     $("#logInForm").removeClass().addClass('shake animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
-    //         $(this).removeClass();
-    //     });
-	// }
+    function lformError() {
+        $("#logInForm").removeClass().addClass('shake animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+            $(this).removeClass();
+        });
+	}
 
     function lsubmitMSG(valid, msg) {
         if (valid) {
