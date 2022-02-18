@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<div style="text-align : center;">
+<style>
+
+    body{
+        background-color : #293B9C;
+    }
+</style>
+
+<img src="{%static 'images/합격.png' %}", style="margin-top: 40px; position:relative;">
+
+
+</div>
+
+<div class="anne">
+
+    <a href="{% url 'anne' %}"
+    
+><p style="
+    color: rgb(47, 16, 133);
+    font-size: 2.0em;
+    font-weight: bold;
+    font-family: anne;
+    
+    position:absolute;
+    top:650px;
+    left:828px;
+
+    ">과제 및 면접 안내 바로가기</p>
+    
+
+    </a>
+
+</div>
+
+{%endblock%}
