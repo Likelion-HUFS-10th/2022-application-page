@@ -96,7 +96,7 @@
                                 <div class="help-block with-errors"></div>
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control-input" id="spassword" name='second_major' required>
+                                <input type="text" class="form-control-input" id="spassword" name='second_major'>
                                 <label class="label-control" for="spassword">second_major</label>
                                 <div class="help-block with-errors"></div>
                             </div>
@@ -114,9 +114,11 @@
                                 <div id="smsgSubmit" class="h3 text-center hidden"></div>
                             </div>
                         </form>
-                        <div class="form-group">
+                        
+                        {% comment %} <div class="form-group">
                           <a href="{% url 'account:kakao-login' %}"><button type="button" class="form-control-submit-button">Kakao Login</button></a>
-                        </div>
+                        </div> {% endcomment %}
+
                     </div> <!-- end of form container -->
                     <!-- end of sign up form -->
                 </div> <!-- end of col -->
