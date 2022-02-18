@@ -137,3 +137,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     @property
     def is_staff(self):
         return self.is_superuser
+
+    class Meta:
+        managed = False
+        db_table = 'user'
