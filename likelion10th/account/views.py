@@ -109,3 +109,6 @@ def kakao_callback(request):
         return render(request, 'home.html')
     except KakaoException as error:
         return redirect("account:signup")
+
+def privacy_policy(request):
+    return render(request, 'privacy-policy.html')

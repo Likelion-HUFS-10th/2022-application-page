@@ -178,7 +178,7 @@
         
         $.ajax({
             type: "POST",
-            url: "php/signupform-process.php",
+            url: "",
             data: "email=" + email + "&name=" + name + "&password=" + password + "&terms=" + terms, 
             success: function(text) {
                 if (text == "success") {

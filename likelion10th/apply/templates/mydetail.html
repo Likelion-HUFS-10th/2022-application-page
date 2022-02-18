@@ -1,0 +1,51 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block content %}
+
+    <!-- Header -->
+    <header id="header" class="ex-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>지원서 작성</h1>
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </header> <!-- end of ex-header -->
+    <!-- end of header -->
+        <!-- Privacy Content -->
+        <div class="ex-basic-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="text-container">
+                            <h4>1. 다양한 IT동아리 중에서 멋쟁이사자처럼 대학 10기를 선택하고 지원하시게 된 이유를 작성해주세요. (500자 이내)</h4>
+                            <div class="text-container dark">
+                                <p class="testimonial-text">{{apply.first_q}}</p>
+                            </div> <!-- end of text container -->
+                            
+                            <h4>2. 지원하신 파트를 선택한 이유와 관련 경험을 해본 적이 있는지, 그리고 이 파트를 통해 어떠한 성장을 희망하시는지 작성해주세요. (500자 이내)</h4>
+                            <div class="text-container dark">
+                                <p class="testimonial-text">{{apply.second_q}}</p>
+                            </div> <!-- end of text container -->
+    
+                            <h4>3. 멋쟁이사자처럼 대학은 협업과 팀워크를 중요한 가치로 생각하는 공동체입니다. <br>지원자 본인이 협업과 팀워크를 진행해보았던 경험과, 그 경험을 멋쟁이 사자처럼 대학에서 어떻게 적용시킬 수 있을지 작성해주세요. (500자 이내)</h4>
+                            <div class="text-container dark">
+                                <p class="testimonial-text">{{apply.third_q}}</p>
+                            </div> <!-- end of text container -->
+
+                            <h4>4. 멋쟁이사자처럼 대학은 최소 주 2회 모임 & 10시간 이상의 시간 투자를 권장합니다. <br>활동 기간동안 얼마나 열정적으로, 매주 얼만큼의 시간을 할애하실 수 있는지 작성해주세요. (500자 이내)</h4>
+                            <div class="text-container dark">
+                                <p class="testimonial-text">{{apply.fourth_q}}</p>
+                            </div> <!-- end of text container -->
+
+                            </div> <!-- end of row -->
+                        </div> <!-- end of text-container-->
+                        <a class="btn-outline-reg" href="index.html">수정</a>
+                        <a class="btn-outline-reg" href="index.html">최종 제출</a>
+                    </div> <!-- end of col-->
+                </div> <!-- end of row -->
+            </div> <!-- end of container -->
+        </div> <!-- end of ex-basic-2 -->
+        <!-- end of privacy content -->
+{% endblock %}

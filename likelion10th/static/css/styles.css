@@ -1496,7 +1496,7 @@ a:hover.back-to-top {
 .ex-header {
 	padding-top: 8rem;
 	padding-bottom: 5rem;
-	background-color: #5f4dee;
+	background-color: #111111;
 	text-align: center;
 }
 
@@ -1554,7 +1554,7 @@ a:hover.back-to-top {
 }
 
 .ex-basic-2 .list-unstyled .fas {
-	color: #5f4dee;
+	color: #e69600;
 	font-size: 0.5rem;
 	line-height: 1.625rem;
 }
@@ -1583,7 +1583,7 @@ a:hover.back-to-top {
 /****************************************/
 .ex-2-header {
 	padding-top: 9rem;
-	background-color: #5f4dee;
+	background-color: #e69600;
 	text-align: center;
 	min-height: 100vh;
 }
