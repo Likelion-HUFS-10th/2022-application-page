@@ -14,3 +14,15 @@ class Useradmin(admin.ModelAdmin):
         "phone_num",
     )
 
+    readonly_fields = (
+        "email",
+        "name",
+        "student_num",
+        "grade",
+        "phone_num",
+        "first_major",
+        "second_major",
+        "last_login",
+        "password",
+        "is_active",
+    )

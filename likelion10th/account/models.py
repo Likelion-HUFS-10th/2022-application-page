@@ -26,27 +26,34 @@ GRADE_CHOICES = (
 
 class UserManager(BaseUserManager):
     # 유저를 생성할 때 이메일이 없다면 이메일이 있어야 한다는 오류를 발생시킵니다. 
-    def create_user(self, email, password):
+    def create_user(self, email, password, name, student_num, phone_num, first_major):
         if not email:
             raise ValueError(("Users must have an email address"))
         # 유저 객체를 생성합니다.
         user = self.model(
             #normalize_email 이메일 정규화라고 하는데 예를 들어 이메일을 대문자로 입력했다면 소문자로 바꿔서 저장해주는 역할을 한다고 합니다. (확실하지는 않음..)
             email=self.normalize_email(email),
-            # username=username,
+            name=name, 
+            student_num=student_num, 
+            phone_num=phone_num, 
+            first_major=first_major,
         )
         #비밀번호 해시함수입니다.
         user.set_password(password)
-        user.save()
+        user.save(using=self._db)
         return user
     
     #슈퍼유저를 생성하는 것이라면 이 함수를 실행시킵니다. 
-    def create_superuser(self, email, password):
+    def create_superuser(self, email, password, name, student_num, phone_num, first_major):
         #유저의 email이라는 필드에 입력받은 email을, username이라는 필드에 username을, .. 넣어 저장합니다. 
         user = self.create_user(
             email=email,
-            # username=username,
             password=password,
+            name=name, 
+            student_num=student_num, 
+            phone_num=phone_num, 
+            first_major=first_major,
+
         )
         
         #슈퍼유저인지 아닌지에 대한 정보를 담습니다.
@@ -62,9 +69,8 @@ class User(AbstractBaseUser, PermissionsMixin):
     #메인 유저의 아이디를 결정하는 부분입니다. 이메일 필드와 유저네임 필드의 역할이 겹치는 것 같아 이메일을 메인으로 설정하였습니다. 필요시 수정하겠습니다.
     USERNAME_FIELD = "email"
 
-    #필수로 입력받고 싶은 값을 받는 부분입니다.
-    #현재는 html에서 관련 처리를 해주어 굳이 필수로 지정할 필요가 없어 비워두었습니다.
-    REQUIRED_FIELDS = []
+    #슈퍼유저 생성시 필수로 입력받고 싶은 값을 받는 부분입니다. NULL|BRANK 값이 FALSE값을 반드시 넣어주어야 합니다.
+    REQUIRED_FIELDS = ['name','student_num','phone_num','first_major']
 
     objects = UserManager()
 
@@ -74,32 +80,14 @@ class User(AbstractBaseUser, PermissionsMixin):
         unique=True,
     )  
 
-    # email field와 역할이 겹치는 면이 있는 것 같아 임시로 주석처리 하였습니다.
-    # 기능상으로는 username이나 email중 어느 쪽을 사용해도 동일하니, 혹시라도 username이 꼭 필요한 것 같다는 의견이 있을시 수정하겠습니다.
-
-    # username = models.CharField(
-    #     verbose_name=("username"),
-    #     max_length=50,
-    #     unique=True,
-    # ) 
-
-    is_active = models.BooleanField(
-        verbose_name=("Is active"),
-        default=True,
-    )
-
     name = models.CharField(
         max_length=20,
         verbose_name="이름",
-        null=True,
-        blank=True,
     )
 
     student_num = models.CharField(
         verbose_name="학번",
         max_length=30,
-        null=True,
-        blank=True
     )
 
     grade = models.CharField(
@@ -111,15 +99,11 @@ class User(AbstractBaseUser, PermissionsMixin):
     phone_num = models.CharField(
         max_length=20,
         verbose_name="휴대폰 번호",
-        null=True,
-        blank=True,
     )
 
     first_major = models.CharField(
         max_length=30,
         verbose_name="본전공",
-        null=True,
-        blank=True,
     )
 
     second_major = models.CharField(
@@ -134,8 +118,26 @@ class User(AbstractBaseUser, PermissionsMixin):
         verbose_name="합격 여부",
     )
 
+    is_active = models.BooleanField(
+        verbose_name=("Is active"),
+        default=True,
+    )
+
+    # email field와 역할이 겹치는 면이 있는 것 같아 임시로 주석처리 하였습니다.
+    # 기능상으로는 username이나 email중 어느 쪽을 사용해도 동일하니, 혹시라도 username이 꼭 필요한 것 같다는 의견이 있을시 수정하겠습니다.
+
+    # username = models.CharField(
+    #     verbose_name=("username"),
+    #     max_length=50,
+    #     unique=True,
+    # ) 
+
     #class User(AbstractBaseUser, PermissionsMixin) 에서의 permissionmixin 에서 가져온 것입니다.
     # 이 부분은 그냥 넘기는게 나을 것 같습니다.
     @property
     def is_staff(self):
         return self.is_superuser
+
+    class Meta:
+        managed = False
+        db_table = 'user'
