@@ -278,12 +278,23 @@ a.white {
 	font-size: 0.75rem;
 	font-weight: 700;
 }
-
-.form-control-input,
 .form-control-select {
 	display: block; /* needed for proper display of the label in Firefox, IE, Edge */
 	width: 100%;
-	padding-top: 1.0625rem;
+	padding-left: 1.25rem;
+	border: 1px solid #c4d8dc;
+	border-radius: 0.25rem;
+	background-color: #fff;
+	color: #555;
+	font: 400 0.875rem/1.875rem "Open Sans", sans-serif;
+	transition: all 0.2s;
+	-webkit-appearance: none; /* removes inner shadow on form inputs on ios safari */
+}
+
+.form-control-input {
+	display: block; /* needed for proper display of the label in Firefox, IE, Edge */
+	width: 100%;
+	padding-top: 1.0425rem;
 	padding-bottom: 0.0625rem;
 	padding-left: 1.25rem;
 	border: 1px solid #c4d8dc;
@@ -379,20 +390,21 @@ input[type='checkbox'] {
 
 .form-control-submit-button {
 	display: inline-block;
-	width: 100%;
+	width: 50%;
 	height: 3.125rem;
-	border: 1px solid #5f4dee;
+	border: 1px solid #E67800;
 	border-radius: 1.5rem;
-	background-color: #5f4dee;
+	background-color: #E67800;
 	color: #fff;
 	font: 700 0.875rem/0 "Open Sans", sans-serif;
 	cursor: pointer;
 	transition: all 0.2s;
+	margin-left: 25%;
 }
 
 .form-control-submit-button:hover {
 	background-color: transparent;
-	color: #5f4dee;
+	color: #E67800;
 }
 
 /* Form Success And Error Message Formatting */
@@ -1583,7 +1595,7 @@ a:hover.back-to-top {
 /****************************************/
 .ex-2-header {
 	padding-top: 9rem;
-	background-color: #5f4dee;
+	background-color: #000000;
 	text-align: center;
 	min-height: 100vh;
 }
@@ -1607,6 +1619,8 @@ a:hover.back-to-top {
 	padding: 2.25rem 1.25rem 1.25rem 1.25rem;
 	border-radius: 0.5rem;
 	background-color: #f3f7fd;
+	opacity: 0.9;
+	text-align: left;
 }
 
 .ex-2-header .checkbox {

@@ -5,5 +5,5 @@ app_name = 'apply' # app_name에는 앱 이름을 넣어줍니다.
 
 urlpatterns = [
     path('create/', views.create, name='create'),
-    path('update/<int:id>', views.update, name='update'),
+    path('update/', views.update, name='update'),
 ]

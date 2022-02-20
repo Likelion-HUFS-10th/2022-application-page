@@ -1,19 +1,15 @@
 from django.shortcuts import render, redirect
 from .models import Apply
-from account.models import User
-from django.contrib.auth.forms import AuthenticationForm
+
 
 # Create your views here.
 def home(request):
     return render(request, 'home.html')
 
 def create(request):
-    if request.method == 'POST':
+    if request.method == 'POST':   # 지원폼 작성 후 저장
         new_application = Apply()
-        form = AuthenticationForm(request=request, data=request.POST)
-        username = form.cleaned_data.get('username')
-        user = User().objects.filter(username=username)
-        new_application.user = user.name    # user
+        new_application.user = request.user   # user name
         new_application.category = request.POST['category']   # category
         new_application.study_url = request.POST['study_url']   # 깃헙 / 블로그 주소
         new_application.first_q = request.POST['q1']   # 질문 1
@@ -21,19 +17,22 @@ def create(request):
         new_application.third_q = request.POST['q3']   # 질문 3
         new_application.fourth_q = request.POST['q4']   # 질문 4
         new_application.save()
-        return render(request, 'detail.html')   # detail 페이지로
-    return render(request, 'create.html')
+        return render(request, 'home.html')   # detail 페이지로 수정해야 함
+    if request.user.is_authenticated:
+        if Apply.objects.filter(user=request.user).exists():
+            return render(request, 'home.html')   # 작성한 폼이 존재할 경우, detail or update 페이지로 넘어갑니다.
+        return render(request, 'create.html')   # 로그인이 되어 있고 작성한 폼이 존재하지 않는 경우, create 페이지로 넘어갑니다.
+    return render(request, 'login.html', {"validity": 1})   # 로그인이 되어 있지 않은 경우, 알림창과 함게 login 페이지로 넘어갑니다.
 
-def update(request, id):
-    form = Apply.objects.get(id=id)
+def update(request):
+    application = Apply.objects.get(user=request.user)
     if request.method == 'POST':
-        # form.user = ?
-        form.category = request.POST['category']   # category
-        form.study_url = request.POST['study_url']   # 깃헙 / 블로그 주소
-        form.first_q = request.POST['q1']   # 질문 1
-        form.second_q = request.POST['q2']   # 질문 2
-        form.third_q = request.POST['q3']   # 질문 3
-        form.fourth_q = request.POST['q4']   # 질문 4
-        form.save()
-        return redirect('apply:detail', form.id)
-    return render(request, 'update.html', {'apply': form})
+        application.category = request.POST['category']   # category
+        application.study_url = request.POST['study_url']   # 깃헙 / 블로그 주소
+        application.first_q = request.POST['q1']   # 질문 1
+        application.second_q = request.POST['q2']   # 질문 2
+        application.third_q = request.POST['q3']   # 질문 3
+        application.fourth_q = request.POST['q4']   # 질문 4
+        application.save()
+        return render(request, 'home.html')   # detail 페이지로 수정해야 함
+    return render(request, 'update.html', {'apply': application})
