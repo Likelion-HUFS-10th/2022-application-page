@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'account',
     'apply',
+    'pass_or_fail'
 ]
 
 MIDDLEWARE = [
