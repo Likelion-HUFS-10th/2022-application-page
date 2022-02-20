@@ -6,6 +6,5 @@ app_name = 'pass_or_fail' # app_name에는 앱 이름을 넣어줍니다.
 urlpatterns = [
     
      path('', views.pass_or_fail, name='pass_or_fail'),
-     path('anne/', views.anne, name='anne'),
     
 ]
