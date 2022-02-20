@@ -44,7 +44,7 @@ def Logout(request):
 
     logout(request)
     
-    return render(request, 'home.html')
+    return redirect('home')
 
 #탈퇴함수입니다. 필요시 사용하면 좋을것 같아 만들었습니다.
 def secession(request):

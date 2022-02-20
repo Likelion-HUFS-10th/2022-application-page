@@ -1,11 +1,13 @@
 from django.shortcuts import render, redirect
 from .models import Apply
+from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
 def home(request):
     return render(request, 'home.html')
 
+@login_required(login_url='/account/login/')
 def create(request):
     if request.method == 'POST':   # 지원폼 작성 후 저장
         new_application = Apply()
@@ -18,11 +20,10 @@ def create(request):
         new_application.fourth_q = request.POST['q4']   # 질문 4
         new_application.save()
         return render(request, 'home.html')   # detail 페이지로 수정해야 함
-    if request.user.is_authenticated:
-        if Apply.objects.filter(user=request.user).exists():
-            return render(request, 'home.html')   # 작성한 폼이 존재할 경우, detail or update 페이지로 넘어갑니다.
-        return render(request, 'create.html')   # 로그인이 되어 있고 작성한 폼이 존재하지 않는 경우, create 페이지로 넘어갑니다.
-    return render(request, 'login.html', {"validity": 1})   # 로그인이 되어 있지 않은 경우, 알림창과 함게 login 페이지로 넘어갑니다.
+    if Apply.objects.filter(user=request.user).exists():
+        return render(request, 'home.html')   # 작성한 폼이 존재할 경우, detail or update 페이지로 넘어갑니다.
+    return render(request, 'create.html')   # 로그인이 되어 있고 작성한 폼이 존재하지 않는 경우, create 페이지로 넘어갑니다.
+
 
 def update(request):
     application = Apply.objects.get(user=request.user)
