@@ -16,7 +16,6 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from apply import views
-import pass_or_fail.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,6 +23,6 @@ urlpatterns = [
     path('apply/', include('apply.urls')),
     path('account/', include('account.urls')),
 
-    path('pass_or_fail/', include('pass_or_fail.urls')),
+    path('results/', include('pass_or_fail.urls')),
     
 ]

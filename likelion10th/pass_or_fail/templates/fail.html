@@ -1,22 +1,32 @@
 {% extends 'base.html' %}
-
 {% load static %}
-
-{% block content %}
-
-<div style="text-align : center;">
+{% block style %}
 <style>
+    body {
+        background-color: #293B9C;
+    }
 
-    body{
-        background-color : #293B9C;
+    .navbar-custom.top-nav-collapse {
+        background-color: #293B9C !important;
+    }
+
+    .copyright {
+        background-color: #293B9C !important;
+        width: 100%;
     }
 </style>
+{% endblock %}
 
-<img src="{%static 'images/불합격.png' %}", style="margin-top: 40px; position:relative;">
+{% block content %}
+<div style="text-align : center;">
+    <style>
+        body {
+            background-color: #293B9C;
+        }
+    </style>
+
+    <img src="{%static 'images/불합격.png' %}" , style="margin-top: 40px; position:relative;">
 
 
 </div>
-
-
-
 {%endblock%}

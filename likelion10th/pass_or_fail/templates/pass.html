@@ -1,25 +1,25 @@
 {% extends 'base.html' %}
-
 {% load static %}
-
-{% block content %}
-
-<div style="text-align : center;">
+{% block style %}
 <style>
-
     body{
         background-color : #293B9C;
     }
+    .navbar-custom.top-nav-collapse {
+        background-color: #293B9C !important;
+    }
+    .copyright{
+        background-color: #293B9C !important;
+        width: 100%;
+    }
 </style>
+{% endblock %}
+
+{% block content %}
+<div style="text-align : center;">
 
 <img src="{%static 'images/합격.png' %}", style="margin-top: 40px; position:relative;">
-
-
-</div>
-
-<div class="anne">
-
-    <a href="https://endurable-orca-c26.notion.site/8d6a95759b1d44bf96ef198e58bc7cb8"
+<a href="https://endurable-orca-c26.notion.site/8d6a95759b1d44bf96ef198e58bc7cb8"
     
 ><p style="
     color: rgb(47, 16, 133);
@@ -28,14 +28,19 @@
     font-family: anne;
     
     position:absolute;
-    top:650px;
-    left:828px;
+    top:660px;
+    left:57%;
 
     ">과제 및 면접 안내 바로가기</p>
     
 
     </a>
+</div>
+
+<div class="anne">
+
+
 
 </div>
 
-{%endblock%}
+{% endblock %}
