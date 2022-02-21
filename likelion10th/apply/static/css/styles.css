@@ -106,7 +106,7 @@ h6 {
 }
 
 .testimonial-text {
-	font: italic 400 1rem/1.625rem "Open Sans", sans-serif;
+	font: 400 1rem/1.625rem "Open Sans", sans-serif;
 }
 
 .testimonial-author {
@@ -187,17 +187,18 @@ a.white {
 .btn-outline-reg {
 	display: inline-block;
 	padding: 1.1875rem 2.125rem 1.1875rem 2.125rem;
-	border: 0.125rem solid #5f4dee;
+	border: 0.125rem solid #e69600;
 	border-radius: 2rem;
 	background-color: transparent;
-	color: #5f4dee;
+	color: #e69600;
+	margin-left: 2%;
 	font: 700 0.875rem/0 "Open Sans", sans-serif;
 	text-decoration: none;
 	transition: all 0.2s;
 }
 
 .btn-outline-reg:hover {
-	background-color: #5f4dee;
+	background-color: #e69600;
 	color: #fff;
 	text-decoration: none;
 }
@@ -1508,7 +1509,7 @@ a:hover.back-to-top {
 .ex-header {
 	padding-top: 8rem;
 	padding-bottom: 5rem;
-	background-color: #5f4dee;
+	background-color: #111111;
 	text-align: center;
 }
 
@@ -1566,7 +1567,7 @@ a:hover.back-to-top {
 }
 
 .ex-basic-2 .list-unstyled .fas {
-	color: #5f4dee;
+	color: #e69600;
 	font-size: 0.5rem;
 	line-height: 1.625rem;
 }
@@ -1595,7 +1596,7 @@ a:hover.back-to-top {
 /****************************************/
 .ex-2-header {
 	padding-top: 9rem;
-	background-color: #000000;
+	background-color: #111111;
 	text-align: center;
 	min-height: 100vh;
 }
