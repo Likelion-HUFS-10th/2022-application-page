@@ -23,8 +23,17 @@
                             <div class="text-container dark">
                                 <p class="testimonial-text">{{apply.first_q}}</p>
                             </div> <!-- end of text container -->
+
+                            <h4>2-2.  멋쟁이사자처럼 대학 10기부터 기초 개발 스터디는 동일하게 진행되지만 이후에 기획/디자인 파트와 개발 파트 중 선택하여 진행하게 됩니다.
+어느 파트에 지원하시나요?</h4>
+                            <div class="text-container dark">
+                                {% if apply.category == 'P/D' %}<p class="testimonial-text">기획 / 디자인</p>
+                                {% elif apply.category == 'FE' %}<p class="testimonial-text">프론트엔드</p>
+                                {% else %}<p class="testimonial-text">백엔드</p>
+                                {% endif %}
+                            </div> <!-- end of text container -->
                             
-                            <h4>2. 지원하신 파트를 선택한 이유와 관련 경험을 해본 적이 있는지, 그리고 이 파트를 통해 어떠한 성장을 희망하시는지 작성해주세요. (500자 이내)</h4>
+                            <h4>2-2. 지원하신 파트를 선택한 이유와 관련 경험을 해본 적이 있는지, 그리고 이 파트를 통해 어떠한 성장을 희망하시는지 작성해주세요. (500자 이내)</h4>
                             <div class="text-container dark">
                                 <p class="testimonial-text">{{apply.second_q}}</p>
                             </div> <!-- end of text container -->
@@ -39,10 +48,19 @@
                                 <p class="testimonial-text">{{apply.fourth_q}}</p>
                             </div> <!-- end of text container -->
 
+                            <h4>5. 깃허브 주소 혹은 블로그 링크</h4>
+                            <div class="text-container dark">
+                                <p class="testimonial-text"><a href="{{apply.study_url}}">{{apply.study_url}}</a></p>
+                            </div> <!-- end of text container -->
+                            {%if apply.is_submitted == False %}
+                            <p>최종 제출을 누르고 나면 더 이상 수정하실 수 없습니다. 지원 시간 내에 최종 제출을 누르지 않으시면 지원하지 않은 것으로 간주됩니다.</p>
+                            {% endif %}
                             </div> <!-- end of row -->
                         </div> <!-- end of text-container-->
-                        <a class="btn-outline-reg" href="index.html">수정</a>
-                        <a class="btn-outline-reg" href="index.html">최종 제출</a>
+                        {%if apply.is_submitted == False %}
+                        <a class="btn-outline-reg" href="{% url 'apply:update' %}">수정</a>
+                        <a class="btn-outline-reg" href="{% url 'apply:submit' %}">최종 제출</a>
+                        {% endif %}
                     </div> <!-- end of col-->
                 </div> <!-- end of row -->
             </div> <!-- end of container -->
