@@ -31,8 +31,10 @@
     <link href="{% static 'css/swiper.css' %}" rel="stylesheet">
 	<link href="{% static 'css/magnific-popup.css' %}" rel="stylesheet">
 	<link href="{% static 'css/styles.css' %}" rel="stylesheet">
+
 	
 </head>
+
 <body data-spy="scroll" data-target=".fixed-top">
     
     <!-- Preloader -->
@@ -50,20 +52,20 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1>Log In</h1>
-                   <p>You don't have a password? Then please <a class="white" href="{% url 'account:signup' %}">Sign Up</a></p> 
+                    <h1 style="color:#E67800">로그인</h1>
+                   <p>혹시 아직 계정이 없으신가요?  <a class="white" href="{% url 'account:signup' %}" style="color:#E67800;">Sign Up</a></p> 
                     <!-- Sign Up Form -->
                     <div class="form-container">
                         <form action="{% url 'account:login' %}" method="POST" id="logInForm" data-toggle="validator" data-focus="false">
                           {% csrf_token %}  
                           <div class="form-group">
                                 <input type="email" class="form-control-input" id="lemail" name="email" required>
-                                <label class="label-control" for="lemail">Email</label>
+                                <label class="label-control" for="lemail">이메일</label>
                                 <div class="help-block with-errors"></div>
                             </div>
                             <div class="form-group">
                                 <input type="password" class="form-control-input" id="lpassword" name="password" required>
-                                <label class="label-control" for="lpassword">Password</label>
+                                <label class="label-control" for="lpassword">비밀번호</label>
                                 <div class="help-block with-errors"></div>
                             </div>
                             <div class="form-group">

@@ -50,60 +50,62 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1>Sign Up</h1>
-                   <p>Fill out the form below to sign up for Tivo. Already signed up? Then just <a class="white" href="{% url 'account:login' %}" >Log In</a></p> 
+                    <h1 style="color:#E67800;">회원가입</h1>
+                   <p>멋쟁이 사자처럼 회원가입을 위해 아래의 폼을 채워주세요<br>
+                     이미 계정이 있으신가요? <a class="white" href="{% url 'account:login' %}" style="color:#E67800;">Log In</a></p> 
                     <!-- Sign Up Form -->
                     <div class="form-container">
                         <form action="{% url 'account:signup' %}" method="POST" id="signUpForm" >
                           {% csrf_token %}
                             <div class="form-group">
                                 <input type="email" class="form-control-input" id="semail" name='email' required >
-                                <label class="label-control" for="semail">Email</label>
+                                <label class="label-control" for="semail">이메일</label>
                                 <div class="help-block with-errors"></div>
                             </div>
                             <div class="form-group">
                                 <input type="password" class="form-control-input" id="spassword" name='password' required>
-                                <label class="label-control" for="spassword">Password</label>
+                                <label class="label-control" for="spassword">비밀번호</label>
                                 <div class="help-block with-errors"></div>
                             </div>
                             <div class="form-group">
                                 <input type="text" class="form-control-input" id="spassword" name='name' required>
-                                <label class="label-control" for="spassword">name</label>
+                                <label class="label-control" for="spassword">성명</label>
                                 <div class="help-block with-errors"></div>
                             </div>
                             <div class="form-group">
                                 <input type="text" class="form-control-input" id="spassword" name='student_num' required>
-                                <label class="label-control" for="spassword">student_num</label>
+                                <label class="label-control" for="spassword">학번</label>
                                 <div class="help-block with-errors"></div>
                             </div>
                             <div class="form-group">
                                 <select class="form-control-input" id="spassword" name='grade' required>
-                                    <option value="none">grade</option>
-                                    <option value="1">freshmen</option>
-                                    <option value="2">sophomore</option>
-                                    <option value="3">junior</option>
-                                    <option value="4">senior</option>
+                                    <option value="none">학년</option>
+                                    <option value="1">1학년</option>
+                                    <option value="2">2학년</option>
+                                    <option value="3">3학년</option>
+                                    <option value="4">4학년</option>
                                 </select>
                             </div>
                             <div class="form-group">
                                 <input type="text" class="form-control-input" id="spassword" name='phone_num' required>
-                                <label class="label-control" for="spassword">phone_num</label>
+                                <label class="label-control" for="spassword">휴대폰 번호</label>
                                 <div class="help-block with-errors"></div>
                             </div>
                             <div class="form-group">
                                 <input type="text" class="form-control-input" id="spassword" name='first_major' required>
-                                <label class="label-control" for="spassword">first_major</label>
+                                <label class="label-control" for="spassword">본 전공</label>
                                 <div class="help-block with-errors"></div>
                             </div>
                             <div class="form-group">
                                 <input type="text" class="form-control-input" id="spassword" name='second_major'>
-                                <label class="label-control" for="spassword">second_major</label>
+                                <label class="label-control" for="spassword">이중 전공</label>
                                 <div class="help-block with-errors"></div>
                             </div>
 
 
                             <div class="form-group checkbox">
-                                <input type="checkbox" id="sterms" value="Agreed-to-Terms" required>I agree with Tivo's <a href="{% url 'account:privacy_policy' %}">Privacy Policy</a> and <a href="terms-conditions.html">Terms Conditions</a>
+                                <input type="checkbox" id="sterms" value="Agreed-to-Terms" required> <a href="{% url 'account:privacy_policy' %}">개인정보 수집 및 이용</a>에 동의합니다
+
                                 <div class="help-block with-errors"></div>
                             </div>
                             <div class="form-group">
