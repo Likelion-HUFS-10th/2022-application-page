@@ -1608,6 +1608,7 @@ a:hover.back-to-top {
 	padding: 2.25rem 1.25rem 1.25rem 1.25rem;
 	border-radius: 0.5rem;
 	background-color: #f3f7fd;
+	opacity: 0.9;
 }
 
 .ex-2-header .checkbox {
