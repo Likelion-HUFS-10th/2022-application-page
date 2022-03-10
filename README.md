@@ -11,8 +11,7 @@
 |지원서 임시 저장|지원서 최종 제출|
 |<img width="700" alt="image" src="https://user-images.githubusercontent.com/75655613/155706507-5880ad7b-1396-4531-93a2-d24031164ab5.png">|<img width="700" alt="image" src="https://user-images.githubusercontent.com/75655613/155706591-ffd0f99c-d6cc-4dbf-bfa0-96a1c28625f1.png">|
 |합격자 조회 (조회 기간 전)|합격자 조회 (조회 기간 내)|
-|<img width="700" alt="image" src="https://user-images.githubusercontent.com/75655613/155706775-5b231e5b-fb9e-47e1-b060-8406dd06e440.png">|<img width="700" alt="image" src="https://user-images.githubusercontent.com/75655613/157647721-8be5fe82-60cf-4a7b-a0eb-f78484235c1f.png">
-|
+|<img width="700" alt="image" src="https://user-images.githubusercontent.com/75655613/155706775-5b231e5b-fb9e-47e1-b060-8406dd06e440.png">|<img width="700" alt="image" src="https://user-images.githubusercontent.com/75655613/157647721-8be5fe82-60cf-4a7b-a0eb-f78484235c1f.png">|
 - 회원가입
 - 로그인
 - 지원서 작성하기
